@@ -1,6 +1,4 @@
-// console.log('Hello to me, Jessica.')
-
-// first step is create list of random items, 3
+// Computer
 
 let playOptions = ['rock', 'paper', 'scissors']
 
@@ -11,4 +9,14 @@ function computerPlay() {
   return item
 }
 
-console.log(computerPlay())
+let computerSelection = computerPlay()
+
+// Player
+
+let playerSelection = prompt(
+  'Please type in your move (rock, paper, or scissors)',
+  'type here'
+)
+console.log(`Player:${playerSelection}`)
+
+console.log(`Computer:${computerSelection}`)
