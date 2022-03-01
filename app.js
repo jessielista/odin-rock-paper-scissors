@@ -1,41 +1,28 @@
 // Computer
 
-let playOptions = ['rock', 'paper', 'scissors']
-
 function computerPlay() {
+  let playOptions = ['rock', 'paper', 'scissors']
+
   computerRandomPlay = Math.floor(Math.random() * playOptions.length)
   // console.log(computerRandomPlay)
   let item = playOptions[computerRandomPlay]
   return item
 }
 
-let computerSelection = computerPlay()
-
-// Player
-
-let playerSelection = prompt(
-  'Please type in your move (rock, paper, or scissors)',
-  'type here'
-)
-console.log(`Player:${playerSelection}`)
-
-console.log(`Computer:${computerSelection}`)
-
 // Versus
 
-function playRound(playerSelection, computerSelection) {
-  if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'rock') {
-    return 'rock:it is a tie'
-  } else if (
-    playerSelection.toLowerCase() == 'paper' &&
-    computerSelection == 'paper'
-  ) {
-    return 'paper: it is a tie'
-  } else if (
-    playerSelection.toLowerCase() == 'scissors' &&
-    computerSelection == 'scissors'
-  ) {
-    return 'scissors: it is a tie'
+function playRound() {
+  // moved computerSelection and playerSelection variable inside playRound(), because of scope issues
+
+  let computerSelection = computerPlay()
+
+  let playerSelection = prompt(
+    'Please type in your move (rock, paper, or scissors)',
+    'type here'
+  )
+
+  if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
+    return `Player selects: ${playerSelection}. Computer selects ${computerSelection}. The game is a tie!`
   } else if (
     playerSelection.toLowerCase() == 'rock' &&
     computerSelection == 'paper'
@@ -72,4 +59,12 @@ function playRound(playerSelection, computerSelection) {
   // should refactor
 }
 
-console.log(playRound(playerSelection, computerSelection))
+// console.log(playRound(playerSelection, computerSelection))
+
+function game() {
+  for (let i = 0; i < 5; i++) {
+    console.log(playRound())
+  }
+}
+
+game()
