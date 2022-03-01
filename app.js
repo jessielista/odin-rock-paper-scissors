@@ -1,4 +1,9 @@
-// Computer
+// Score
+
+let computerScore = 0
+let playerScore = 0
+
+// Computer Generates Random Move
 
 function computerPlay() {
   let playOptions = ['rock', 'paper', 'scissors']
@@ -9,11 +14,10 @@ function computerPlay() {
   return item
 }
 
-// Versus
+// Player vs Computer via Rounds
 
 function playRound() {
   // moved computerSelection and playerSelection variable inside playRound(), because of scope issues
-
   let computerSelection = computerPlay()
 
   let playerSelection = prompt(
@@ -27,38 +31,44 @@ function playRound() {
     playerSelection.toLowerCase() == 'rock' &&
     computerSelection == 'paper'
   ) {
+    computerScore++
     return `Player selects: ${playerSelection}. Computer selects ${computerSelection}. Computer wins!`
   } else if (
     playerSelection.toLowerCase() == 'rock' &&
     computerSelection == 'scissors'
   ) {
+    playerScore++
     return `Player selects: ${playerSelection}. Computer selects ${computerSelection}. Player wins!`
   } else if (
     playerSelection.toLowerCase() == 'paper' &&
     computerSelection == 'scissors'
   ) {
+    computerScore++
     return `Player selects: ${playerSelection}. Computer selects ${computerSelection}. Computer wins!`
   } else if (
     computerSelection.toLowerCase() == 'rock' &&
     playerSelection == 'paper'
   ) {
+    playerScore++
     return `Player selects: ${playerSelection}. Computer selects ${computerSelection}. Player wins!`
   } else if (
     computerSelection.toLowerCase() == 'rock' &&
     playerSelection == 'scissors'
   ) {
+    computerScore++
     return `Player selects: ${playerSelection}. Computer selects ${computerSelection}. Computer wins!`
   } else if (
     computerSelection.toLowerCase() == 'paper' &&
     playerSelection == 'scissors'
   ) {
+    playerScore++
     return `Player selects: ${playerSelection}. Computer selects ${computerSelection}. Player wins!`
   } else {
     return 'Hey something is wrong!'
   }
 }
 
-// console.log(playRound(playerSelection, computerSelection))
+// Game Plays for 5 Rounds
 
 function game() {
   for (let i = 0; i < 5; i++) {
@@ -67,3 +77,12 @@ function game() {
 }
 
 game()
+
+// Score is Counted
+
+function countScore() {
+  console.log(`The Player's score is: ${playerScore}`)
+  console.log(`The Computer's score is ${computerScore}`)
+}
+
+countScore()
