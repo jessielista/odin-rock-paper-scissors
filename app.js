@@ -86,3 +86,17 @@ function countScore() {
 }
 
 countScore()
+
+function compareScore() {
+  if (playerScore > computerScore) {
+    console.log('Player wins the whole game!')
+  } else if (computerScore > playerScore) {
+    console.log('Computer wins the whole game!')
+  } else if (playerScore == computerScore) {
+    console.log('The game is a tie, there is no winner!')
+  } else {
+    console.log('Something is wrong with the counter.')
+  }
+}
+
+compareScore()
